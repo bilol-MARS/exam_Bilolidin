@@ -31,7 +31,8 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('products/', products, name='products'),
     path('whyus/', whyus, name='whyus'),
-    path('testimonial/',testimonial, name='testimonial')
+    path('testimonial/',testimonial, name='testimonial'),
+    path('api/admin',homepage)
     
 ]
 
