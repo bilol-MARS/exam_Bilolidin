@@ -53,12 +53,20 @@
                 </span>
               </a>
             </div>
-            <form class="search_form">
-              <input type="text" class="form-control" placeholder="Qidirish...">
+
+
+
+            
+            <form class="search_form" method="POST">
+              {% csrf_token %}
+              <input type="text" class="form-control" placeholder="Qidirish..." name="search_query" required>
               <button class="" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
+                  <i class="fa fa-search" aria-hidden="true"></i>
               </button>
             </form>
+
+
+
             <div class="user_option_box">
               <a href="" class="account-link">
                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -66,10 +74,10 @@
                   Mening hisobim
                 </span>
               </a>
-              <a href="" class="cart-link">
+              <a href="{% url 'savatcha' %}" class="cart-link">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span>
-                  Savat
+                  Savatcha
                 </span>
               </a>
             </div>
@@ -130,7 +138,7 @@
   <div class="box">
     <div class="img-box">
       <img src="{{mahsulot.image.url}}" alt="">
-      <a href="" class="add_cart_btn">
+      <a href="{% url 'like' mahsulot.pk %}" class="add_cart_btn">
         <span>
           Savatga qo'shish
         </span>
@@ -182,15 +190,15 @@
             </h5>
             <p>
               <i class="fa fa-map-marker" aria-hidden="true"></i>
-              Manzil
+              Tinchlik(metro)
             </p>
             <p>
               <i class="fa fa-phone" aria-hidden="true"></i>
-              +01 1234567890
+              +998-97-765-45-67
             </p>
             <p>
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              demo@gmail.com
+              pulatovbilol53@@gmail.com
             </p>
           </div>
         </div>
@@ -200,7 +208,7 @@
               Ma'lumot
             </h5>
             <p>
-              Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.
+              Biz mijozlarimizga ishonchli va sifatli xizmat ko‘rsatishga intilamiz. Biz bilan hamkorlik qilib, siz doimo eng yaxshi natijalarga erishasiz.
             </p>
           </div>
         </div>
@@ -212,43 +220,27 @@
             <ul>
               <li>
                 <a href="index.html">
-                  Bosh sahifa
+                  Bizning asosiy sahifamizga qayting
                 </a>
               </li>
-              <li>
-                <a href="about.html">
-                  Haqida
-                </a>
-              </li>
-              <li>
-                <a href="product.html">
-                  Mahsulotlar
-                </a>
-              </li>
-              <li>
-                <a href="why.html">
-                  Nima uchun biz
-                </a>
-              </li>
-              <li>
-                <a href="testimonial.html">
-                  Fikr-mulohazalar
-                </a>
-              </li>
-            </ul>
+              
           </div>
         </div>
         <div class="col-md-3">
           <div class="info_form ">
             <h5>
-              Yangiliklar
+              Shikoyatingiz bormi
             </h5>
-            <form action="">
-              <input type="email" placeholder="Elektron pochtangizni kiriting">
+
+            <form method="POST" action="">
+              {% csrf_token %}
+              <input name="message" placeholder="Bizga xabar yuboring">
               <button>
-                Obuna bo'lish
+                Yuborish
               </button>
             </form>
+
+
             <div class="social_box">
               <a href="">
                 <i class="fa fa-facebook" aria-hidden="true"></i>

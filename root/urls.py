@@ -20,7 +20,7 @@ from apps.views import homepage
 from apps.views import about
 from apps.views import products
 from apps.views import whyus
-from apps.views import testimonial
+from apps.views import testimonial, SavatchaView, UserCreateView, UserLogoutView, UserSigninView, ShoppingCartCreateView, contactview
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -32,8 +32,15 @@ urlpatterns = [
     path('products/', products, name='products'),
     path('whyus/', whyus, name='whyus'),
     path('testimonial/',testimonial, name='testimonial'),
-    path('api/admin',homepage)
-    
+    path('api/admin',homepage),
+    path('savat/', SavatchaView.as_view(), name='savatcha'),
+    path('signup/', UserCreateView.as_view(), name='user_create'),
+    path('singin/', UserSigninView.as_view(), name='login'),
+    path('logout/', UserLogoutView.as_view(), name='logout'),
+    path('like/<int:pk>/', ShoppingCartCreateView.as_view(), name='like'),
+    path('contact/', contactview, name='contact'),
+   
+
 ]
 
 

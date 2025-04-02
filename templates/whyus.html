@@ -135,7 +135,8 @@
                 Tez yetkazib berish
               </h5>
               <p>
-                Lorem Ipsum o'zgarishlari mavjud
+                Buyurtmangizni iloji boricha tez yetkazib beramiz.
+                Ishonchli va samarali xizmat!
               </p>
             </div>
           </div>
@@ -150,8 +151,8 @@
                 Bepul yetkazib berish
               </h5>
               <p>
-                Lorem Ipsum o'zgarishlari mavjud
-              </p>
+                Buyurtmalaringizni mutlaqo bepul yetkazib beramiz.
+                Qo‘shimcha to‘lovsiz qulaylikdan bahramand bo‘ling!              </p>
             </div>
           </div>
         </div>
@@ -165,7 +166,8 @@
                 Eng yaxshi sifat
               </h5>
               <p>
-                Lorem Ipsum o'zgarishlari mavjud
+                Mahsulotlarimiz sifati doimiy nazorat ostida.
+                Sifat – bizning ustuvor maqsadimiz!
               </p>
             </div>
           </div>
@@ -190,15 +192,15 @@
             </h5>
             <p>
               <i class="fa fa-map-marker" aria-hidden="true"></i>
-              Manzil
+              Tinchlik(metro)
             </p>
             <p>
               <i class="fa fa-phone" aria-hidden="true"></i>
-              +01 1234567890
+              +998-97-765-45-67
             </p>
             <p>
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              demo@gmail.com
+              pulatovbilol53@@gmail.com
             </p>
           </div>
         </div>
@@ -208,7 +210,7 @@
               Ma'lumot
             </h5>
             <p>
-              Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.
+              Biz mijozlarimizga ishonchli va sifatli xizmat ko‘rsatishga intilamiz. Biz bilan hamkorlik qilib, siz doimo eng yaxshi natijalarga erishasiz.
             </p>
           </div>
         </div>
@@ -220,43 +222,28 @@
             <ul>
               <li>
                 <a href="index.html">
-                  Bosh sahifa
-                </a>
-              </li>
-              <li>
-                <a href="about.html">
-                  Haqida
-                </a>
-              </li>
-              <li>
-                <a href="product.html">
-                  Mahsulotlar
-                </a>
-              </li>
-              <li>
-                <a href="why.html">
-                  Nima uchun biz
-                </a>
-              </li>
-              <li>
-                <a href="testimonial.html">
-                  Fikr-mulohazalar
-                </a>
-              </li>
+                  Bizning asosiy sahifamizga qayting 
+                 </a>
             </ul>
           </div>
         </div>
         <div class="col-md-3">
           <div class="info_form ">
             <h5>
-              Yangiliklar
+              Shikoyatingiz bormi
             </h5>
-            <form action="">
-              <input type="email" placeholder="Elektron pochtangizni kiriting">
+
+
+            <form method="POST" action="">
+              {% csrf_token %}
+              <input name="message" placeholder="Bizga xabar yuboring">
               <button>
-                Obuna bo'lish
+                Yuborish
               </button>
             </form>
+
+
+
             <div class="social_box">
               <a href="">
                 <i class="fa fa-facebook" aria-hidden="true"></i>

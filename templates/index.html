@@ -55,6 +55,9 @@
                 </span>
               </a>
             </div>
+
+
+
             <form class="search_form" method="POST">
               {% csrf_token %}
               <input type="text" class="form-control" placeholder="Qidirish..." name="search_query" required>
@@ -63,19 +66,21 @@
               </button>
           </form>
           
+
+          
             <div class="user_option_box">
-              <a href="" class="account-link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <span>
-                  PULATOV_BILOL
-                </span>
-              </a>
-              <a href="" class="cart-link">
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'logout' %}">{{request.user}} // Log out</a>
+              <a href="{% url 'savatcha' %}" class="cart-link">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span>
                   Savatcha
                 </span>
-              </a>
+            
+            {% else %}
+            <a href="{% url 'login' %}">{{request.user}} // Sign in</a>
+            {% endif %}
+             
             </div>
           </div>
         </div>
@@ -131,8 +136,7 @@
                       Do'konimizga xush kelibsiz
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
-                    </p>
+                      Eng sifatli mahsulotlar, eng maqbul narxlar va a'lo darajadagi xizmat! Biz siz uchun qulay va ishonchli xarid tajribasini taqdim etamiz.                    </p>
                     <a href="">
                       Batafsil
                     </a>
@@ -219,37 +223,39 @@
         </h2>
       </div>
       <div class="row">
-        {% for mahsulot in mahsulotlar %}
-        <div class="col-sm-6 col-lg-4">
-          <div class="box">
-            <div class="img-box">
-              <img src="{{mahsulot.image.url}}" alt="">
-              <a href="" class="add_cart_btn">
-                <span>
-                  Savatga qo'shish
-                </span>
-              </a>
-            </div>
-            <div class="detail-box">
-              <h5>
-                {{mahsulot.name}}
-              </h5>
-              <div class="product_info">
-                <h5>
-                  {{mahsulot.price}}<span>$</span> 
-                </h5>
-                <div class="star_container">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                </div>
-              </div>
-            </div>
-          </div>
+       
+{% for mahsulot in mahsulotlar %}
+<div class="col-sm-6 col-lg-4">
+  <div class="box">
+    <div class="img-box">
+      <img src="{{mahsulot.image.url}}" alt="">
+      <a href="{% url 'like' mahsulot.pk %}" class="add_cart_btn">
+        <span>
+          Savatga qo'shish
+        </span>
+      </a>
+    </div>
+    <div class="detail-box">
+      <h5>
+        {{mahsulot.name}}
+      </h5>
+      <div class="product_info">
+        <h5>
+          {{mahsulot.price}}<span>$</span> 
+        </h5>
+        <div class="star_container">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
         </div>
-        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+  
       </div>
       <div class="btn_box">
         <a href="" class="view_more-link">
@@ -272,8 +278,7 @@
               </h2>
             </div>
             <p>
-              Totam architecto rem beatae veniam, cum officiis adipisci soluta perspiciatis ipsa, expedita maiores quae accusantium. Animi veniam aperiam, necessitatibus mollitia ipsum id optio ipsa odio ab facilis sit labore officia!
-              Repellat expedita, deserunt eum soluta rem culpa. Aut, necessitatibus cumque. Voluptas consequuntur vitae aperiam animi sint earum, ex unde cupiditate, molestias dolore quos quas possimus eveniet facilis magnam? Vero, dicta.
+              Mukammallikka intilib, biz sizga eng yaxshi xizmat va mahsulotlarni taklif qilamiz. Ishonch, sifat va innovatsiya – bizning asosiy tamoyillarimiz.
             </p>
             <a href="">
               Batafsil
@@ -495,12 +500,8 @@
               Ma'lumot
             </h5>
             <p>
-              Eligendi sunt, provident, debitis nemo, facilis cupiditate
+              Biz mijozlarimizga ishonchli va sifatli xizmat ko‘rsatishga intilamiz. Biz bilan hamkorlik qilib, siz doimo eng yaxshi natijalarga erishasiz.
+            </p>
 
 
 
-
-
-
-
-              
